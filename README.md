@@ -1,3 +1,14 @@
+Run
+
+    conda create -n cycle python=3.8
+    conda activate cycle
+    pip install -r requirements.txt
+    update-moreh --force --torch
+
+    bash ./datasets/download_cyclegan_dataset.sh maps
+
+    python train.py --dataroot ./datasets/facades --name facades_pix2pix --model pix2pix --direction BtoA
+
 
 <img src='imgs/horse2zebra.gif' align="right" width=384>
 
