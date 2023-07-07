@@ -5,9 +5,20 @@ Run
     pip install -r requirements.txt
     update-moreh --force --torch
 
+Train cycle gan
+
     bash ./datasets/download_cyclegan_dataset.sh maps
 
-    python train.py --dataroot ./datasets/facades --name facades_pix2pix --model pix2pix --direction BtoA
+
+    python train.py --dataroot ./datasets/maps --name maps_cyclegan --model cycle_gan 2>&1 | tee log.txt
+
+
+Train pix2pix
+
+    bash ./datasets/download_pix2pix_dataset.sh facades
+
+    
+    python train.py --dataroot ./datasets/facades --name facades_pix2pix --model pix2pix --direction BtoA 2>&1 | tee log.txt
 
 
 <img src='imgs/horse2zebra.gif' align="right" width=384>
