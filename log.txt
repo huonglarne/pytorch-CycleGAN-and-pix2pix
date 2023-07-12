@@ -1,0 +1,111 @@
+/nas/huong/env/transvm07/lib/python3.8/site-packages/torch/_M/driver/common/utils.py:2091: UserWarning: torch.triangular_solve is deprecated in favor of torch.linalg.solve_triangularand will be removed in a future PyTorch release.
+torch.linalg.solve_triangular has its arguments reversed and does not return a copy of one of the inputs.
+X = torch.triangular_solve(B, A).solution
+should be replaced with
+X = torch.linalg.solve_triangular(A, B). (Triggered internally at ../aten/src/ATen/native/BatchLinearAlgebra.cpp:2115.)
+  'triangular_solve': type(dummy_tensor.triangular_solve(dummy_tensor)),
+2023-07-12 17:06:57,134 - torch.distributed.nn.jit.instantiator - INFO - Created a temporary directory at /tmp/tmpm5tg119r
+2023-07-12 17:06:57,135 - torch.distributed.nn.jit.instantiator - INFO - Writing /tmp/tmpm5tg119r/_remote_module_non_scriptable.py
+[2023-07-12 17:07:09.558] [info] Requesting resources for KT AI Accelerator from the server...
+[2023-07-12 17:07:10.574] [info] Initializing the worker daemon for KT AI Accelerator
+[2023-07-12 17:07:11.883] [info] [1/1] Connecting to resources on the server (192.168.110.14:24164)...
+[2023-07-12 17:07:11.896] [info] Establishing links to the resources...
+[2023-07-12 17:07:11.990] [info] KT AI Accelerator is ready to use.
+2023-07-12 17:07:12,480 - visdom - WARNING - Setting up a new session...
+2023-07-12 17:07:12,489 - websocket - INFO - Websocket connected
+2023-07-12 17:07:12,491 - visdom - INFO - Visdom successfully connected to server
+----------------- Options ---------------
+               batch_size: 1                             
+                    beta1: 0.5                           
+          checkpoints_dir: ./checkpoints                 
+           continue_train: False                         
+                crop_size: 256                           
+                 dataroot: ./datasets/maps               	[default: None]
+             dataset_mode: unaligned                     
+                direction: AtoB                          
+              display_env: main                          
+             display_freq: 400                           
+               display_id: 1                             
+            display_ncols: 4                             
+             display_port: 8097                          
+           display_server: http://localhost              
+          display_winsize: 256                           
+                    epoch: latest                        
+              epoch_count: 1                             
+                 gan_mode: lsgan                         
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: True                          	[default: None]
+                 lambda_A: 10.0                          
+                 lambda_B: 10.0                          
+          lambda_identity: 0.5                           
+                load_iter: 0                             	[default: 0]
+                load_size: 286                           
+                       lr: 0.0002                        
+           lr_decay_iters: 50                            
+                lr_policy: linear                        
+         max_dataset_size: inf                           
+                    model: cycle_gan                     
+                 n_epochs: 100                           
+           n_epochs_decay: 100                           
+               n_layers_D: 3                             
+                     name: maps_cyclegan                 	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: resnet_9blocks                
+                      ngf: 64                            
+               no_dropout: True                          
+                  no_flip: False                         
+                  no_html: False                         
+                     norm: instance                      
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: train                         
+                pool_size: 50                            
+               preprocess: resize_and_crop               
+               print_freq: 100                           
+             save_by_iter: False                         
+          save_epoch_freq: 5                             
+         save_latest_freq: 5000                          
+           serial_batches: False                         
+                   suffix:                               
+         update_html_freq: 1000                          
+                use_wandb: False                         
+                  verbose: False                         
+       wandb_project_name: CycleGAN-and-pix2pix          
+----------------- End -------------------
+dataset [UnalignedDataset] was created
+The number of training images = 1096
+initialize network with normal
+initialize network with normal
+initialize network with normal
+initialize network with normal
+model [CycleGANModel] was created
+---------- Networks initialized -------------
+[Network G_A] Total number of parameters : 11.378 M
+[Network G_B] Total number of parameters : 11.378 M
+[Network D_A] Total number of parameters : 2.765 M
+[Network D_B] Total number of parameters : 2.765 M
+-----------------------------------------------
+create web directory ./checkpoints/maps_cyclegan/web...
+learning rate 0.0002000 -> 0.0002000
+Traceback (most recent call last):
+  File "train.py", line 44, in <module>
+    for i, data in enumerate(dataset):  # inner loop within one epoch
+  File "/nas/huong/projects/pytorch-CycleGAN-and-pix2pix/data/__init__.py", line 90, in __iter__
+    for i, data in enumerate(self.dataloader):
+  File "/nas/huong/env/transvm07/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 628, in __next__
+    data = self._next_data()
+  File "/nas/huong/env/transvm07/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1316, in _next_data
+    idx, data = self._get_data()
+  File "/nas/huong/env/transvm07/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1282, in _get_data
+    success, data = self._try_get_data()
+  File "/nas/huong/env/transvm07/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1120, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/nas/huong/env/transvm07/lib/python3.8/multiprocessing/queues.py", line 116, in get
+    return _ForkingPickler.loads(res)
+  File "/nas/huong/env/transvm07/lib/python3.8/site-packages/torch/multiprocessing/reductions.py", line 310, in rebuild_storage_fd
+    storage = cls._new_shared_fd_cpu(fd, size)
+AttributeError: type object 'torch.storage.TypedStorage' has no attribute '_new_shared_fd_cpu'
